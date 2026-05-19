@@ -1,0 +1,313 @@
+<footer class="squawk-footer">
+  <div class="squawk-footer__top page-width">
+    <div class="squawk-footer__grid">
+
+      <div class="squawk-footer__brand">
+        {% if section.settings.footer_logo != blank %}
+          <img
+            src="{{ section.settings.footer_logo | image_url: width: 500 }}"
+            alt="{{ shop.name }}"
+            class="squawk-footer__logo-image"
+            loading="lazy"
+            width="{{ section.settings.footer_logo.width }}"
+            height="{{ section.settings.footer_logo.height }}"
+          >
+        {% else %}
+          <h2 class="squawk-footer__logo">{{ shop.name }}</h2>
+        {% endif %}
+
+        <p class="squawk-footer__tagline">
+          Premium parrot supplies for playful birds and the humans who adore them.
+        </p>
+
+        <div class="squawk-footer__trust">
+          <div class="trust-pill">Bird-Loving Support</div>
+          <div class="trust-pill">Secure Checkout</div>
+          <div class="trust-pill">Curated for Parrot Homes</div>
+        </div>
+      </div>
+
+      <div class="squawk-footer__links">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="/collections/parrot-cages">Parrot Cages</a></li>
+          <li><a href="/collections/parrot-play-stands">Play Stands</a></li>
+          <li><a href="/collections/java-trees">Java Trees</a></li>
+          <li><a href="/collections/parrot-toys">Parrot Toys</a></li>
+        </ul>
+      </div>
+
+      <div class="squawk-footer__links">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="/pages/contact">Contact Us</a></li>
+          <li><a href="/pages/shipping-returns">Shipping & Returns</a></li>
+          <li><a href="/pages/faq">FAQ</a></li>
+          <li><a href="/pages/about-us">About Squawk Shop</a></li>
+        </ul>
+      </div>
+
+      <div class="squawk-footer__newsletter">
+        <h3>Join the Flock</h3>
+        <p>
+          Get new product drops, parrot care tips, and exclusive offers delivered to your inbox.
+        </p>
+
+        {% form 'customer', class: 'squawk-newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+
+          <div class="squawk-newsletter-form__row">
+            <input
+              type="email"
+              name="contact[email]"
+              placeholder="Enter your email"
+              aria-label="Email address"
+              required
+            >
+            <button type="submit">Sign Up</button>
+          </div>
+
+          {% if form.posted_successfully? %}
+            <p class="squawk-form-message success">You’re in. Welcome to the flock.</p>
+          {% endif %}
+
+          {% if form.errors %}
+            <p class="squawk-form-message error">{{ form.errors | default_errors }}</p>
+          {% endif %}
+        {% endform %}
+
+        <div class="squawk-footer__socials">
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="squawk-footer__bottom">
+    <div class="page-width squawk-footer__bottom-inner">
+      <div class="squawk-footer__legal-links">
+        <a href="/policies/privacy-policy">Privacy Policy</a>
+        <a href="/policies/terms-of-service">Terms of Service</a>
+        <a href="/policies/refund-policy">Refund Policy</a>
+      </div>
+      <p class="squawk-footer__copyright">
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}. Built for birds with big personalities.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .squawk-footer {
+    background: linear-gradient(180deg, #18252e 0%, #101920 100%);
+    color: #ffffff;
+    margin-top: 60px;
+  }
+
+  .squawk-footer__top {
+    padding: 56px 20px 40px;
+  }
+
+  .squawk-footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.4fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .squawk-footer__logo {
+    margin: 0 0 12px;
+    font-size: 32px;
+    line-height: 1.1;
+    color: #ffbf00;
+  }
+
+  .squawk-footer__logo-image {
+    max-width: 240px;
+    height: auto;
+    display: block;
+    margin: 0 0 16px;
+  }
+
+  .squawk-footer__tagline {
+    margin: 0 0 18px;
+    color: #e3f5ff;
+    max-width: 420px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .squawk-footer__trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .trust-pill {
+    background: rgba(67, 155, 216, 0.14);
+    border: 1px solid rgba(67, 155, 216, 0.35);
+    color: #e3f5ff;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .squawk-footer h3 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    color: #ffffff;
+  }
+
+  .squawk-footer__links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .squawk-footer__links li {
+    margin-bottom: 10px;
+  }
+
+  .squawk-footer a {
+    color: #e3f5ff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .squawk-footer a:hover {
+    color: #ffbf00;
+  }
+
+  .squawk-footer__newsletter p {
+    color: #e3f5ff;
+    margin: 0 0 16px;
+    line-height: 1.6;
+  }
+
+  .squawk-newsletter-form__row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .squawk-newsletter-form input[type="email"] {
+    flex: 1;
+    min-height: 48px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: #ffffff;
+    color: #18252e;
+    padding: 0 14px;
+    font-size: 15px;
+  }
+
+  .squawk-newsletter-form button {
+    min-height: 48px;
+    border: 0;
+    border-radius: 14px;
+    background: #fe0126;
+    color: #ffffff;
+    padding: 0 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .squawk-newsletter-form button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+  }
+
+  .squawk-form-message {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .squawk-form-message.success {
+    color: #ffbf00;
+  }
+
+  .squawk-form-message.error {
+    color: #ffffff;
+  }
+
+  .squawk-footer__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .squawk-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background: #10171d;
+  }
+
+  .squawk-footer__bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 20px;
+    flex-wrap: wrap;
+  }
+
+  .squawk-footer__legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .squawk-footer__copyright {
+    margin: 0;
+    color: #c9deeb;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 990px) {
+    .squawk-footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .squawk-footer__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .squawk-newsletter-form__row {
+      flex-direction: column;
+    }
+
+    .squawk-newsletter-form button {
+      width: 100%;
+    }
+
+    .squawk-footer__bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Squawk Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer logo"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Squawk Footer"
+    }
+  ]
+}
+{% endschema %}

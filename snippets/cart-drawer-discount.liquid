@@ -1,0 +1,516 @@
+<style>
+    .cart_discounts {
+      column-gap: 7px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-bottom: 15px;
+      row-gap: 7px;
+    }
+  
+    .cart_discounts li {
+      background-color: rgb(var(--color-base-accent-2));
+      border-radius: 5px;
+      padding: 7px 9px;
+    }
+  
+    .cart_discounts span {
+      text-transform: uppercase;
+    }
+  
+    .cart_discounts .remove-discount {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      height: 10px;
+      justify-content: center;
+      margin-left: 9px;
+      opacity: 0.5;
+      width: 10px;
+    }
+  
+    .cart_discounts .remove-discount:hover {
+      opacity: 1;
+      transition: 0.3s;
+    }
+  
+    .custom-discount-form {
+      margin-bottom: 7px;
+    }
+  
+    .custom-discount-form input {
+      flex: 1;
+      padding: 0 10px;
+    }
+  
+    .custom-discount-form input:focus-visible {
+      outline: none;
+    }
+  
+    .custom-discount-form .form {
+      display: flex;
+      gap: 7px;
+    }
+  
+    .custom-discount-form .error {
+      color: red;
+      display: none;
+    }
+  
+    .cart_discounts-block {
+      margin-top: 20px;
+    }
+  
+    .cart-discount__pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+  
+    .cart-discount__pill .svg-wrapper,
+    .cart-discount__pill svg {
+      display: inline-flex;
+      align-items: center;
+    }
+  
+    .cart-discount__pill span {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+    }
+  
+    .cart-discount__pill .remove-discount {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  
+    .cart-drawer .cart-discount__error {
+      color: #be123c;
+      background-color: #fff1f2;
+      border-radius: var(--media-radius);
+      padding: 10px;
+      display: flex;
+      align-items: flex-start;
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
+  
+    .cart-drawer .cart-discount__error svg {
+      flex-shrink: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-right: .7rem;
+    }
+  
+    .cart-drawer .cart-discount__pill svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  
+    .cart-drawer .cart-discount__pill {
+      margin: .5rem 0;
+    }
+  
+    .cart-drawer .custom-discount-form input {
+      border: 1px solid rgba(var(--color-base-border-1));
+      border-radius: var(--inputs-radius);
+      flex-grow: 1;
+      text-align: left;
+      padding: 1.5rem;
+      margin: var(--inputs-border-width);
+      min-height: calc(3.5rem + var(--buttons-border-width) * 2);
+      height: calc(3.5rem + var(--buttons-border-width) * 2);
+    }
+  
+    .cart-drawer .custom-discount-form input:focus-visible {
+      box-shadow: 0 0 0 .1rem rgb(var(--color-foreground));
+      margin-left: .1rem;
+      outline: 0;
+    }
+  
+    .cart-drawer .submit-discount.button {
+      min-height: calc(3.5rem + var(--buttons-border-width) * 2);
+      height: calc(3.5rem + var(--buttons-border-width) * 2);
+    }
+  
+    .rte li.discounts__discount:last-child {
+      margin-bottom: auto;
+    }
+  </style>
+  
+    {% assign discount_codes = "" %}
+    {% assign discount_list = "" %}
+    {% for discount_application in cart.cart_level_discount_applications %}
+      {% if discount_application.type == "discount_code" %}
+        {% assign discount_codes = discount_codes | append: ',' | append: discount_application.title %}
+      {% endif %}
+      {% assign discount_list = discount_list | append: ',' | append: discount_application.title %}
+    {% endfor %}
+  
+    {% for item in cart.items %}
+      {% if item.line_level_discount_allocations.size %}
+        {% for line_discount in item.line_level_discount_allocations %}
+          {% if line_discount.discount_application.type == "discount_code" %}
+            {% assign discount_codes = discount_codes | append: ',' | append: line_discount.discount_application.title %}
+          {% endif %}
+          {% assign discount_list = discount_list | append: ',' | append: line_discount.discount_application.title %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  
+    {% assign discount_codes = discount_codes | remove_first: ',' | split: ',' | uniq | join: ',' %}
+    {% assign discount_list = discount_list | remove_first: ',' | split: ',' | uniq | join: ',' %}
+  
+  <div
+    class="cart_discounts-block"
+    data-section-id="cart-drawer"
+  >
+    <div class="custom-discount-form">
+      <div class="form">
+        <input
+          name="discount"
+          type="text"
+          placeholder="{{ 'customer.order.discount_placeholder' | t }}"
+          autocomplete="off"
+        >
+        <button class="submit-discount button" type="button">Apply</button>
+      </div>
+  
+      <div class="cart-discount__error hidden" role="alert" data-discount-error>
+        <span class="svg-wrapper">
+          {%- render 'icon-error' -%}
+        </span>
+  
+        <small
+          class="cart-discount__error-text hidden"
+          data-discount-error-code
+        >
+          {{ 'customer.order.discount_error' | t }}
+        </small>
+  
+        <small
+          class="cart-discount__error-text hidden"
+          data-discount-error-shipping
+        >
+          {{ 'customer.order.discount_shipping_notification' | t }}
+        </small>
+      </div>
+    </div>
+  
+     <ul class="cart_discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+      {% assign codes = discount_list | split: ',' %}
+      {% for code in codes %}
+        {% if code != blank %}
+          {% if discount_codes contains code %}
+            <li
+              class="discounts__discount discounts__discount--position cart-discount__pill"
+              data-discount-code="{{ code | escape }}"
+            >
+              {%- render 'icon-discount' -%}
+              <span>{{ code | escape }}</span>
+              <button
+                type="button"
+                class="remove-discount"
+                data-code="{{ code | escape }}"
+                aria-label="Remove discount {{ code | escape }}"
+              >
+                {%- render 'icon-close' -%}
+              </button>
+            </li>
+          {% else %}
+            <li class="discounts__discount discounts__discount--position">
+              {%- render 'icon-discount' -%}
+              <span>{{ code | escape }}</span>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <script>
+    let enteredDiscountCode = '';
+  
+    function getSectionId() {
+      return document.querySelector('[data-section-id]')?.dataset.sectionId || 'cart-drawer';
+    }
+  
+    function getDiscountErrorElements() {
+      return {
+        wrapper: document.querySelector('[data-discount-error]'),
+        code: document.querySelector('[data-discount-error-code]'),
+        shipping: document.querySelector('[data-discount-error-shipping]')
+      };
+    }
+  
+    function showError(type = 'discount_code', message = '') {
+      const { wrapper, code, shipping } = getDiscountErrorElements();
+  
+      if (!wrapper) return;
+  
+      wrapper.classList.remove('hidden');
+      if (code) code.classList.add('hidden');
+      if (shipping) shipping.classList.add('hidden');
+  
+      if (type === 'shipping') {
+        if (shipping) {
+          if (message) shipping.textContent = message;
+          shipping.classList.remove('hidden');
+        }
+        return;
+      }
+  
+      if (code) {
+        if (message) code.textContent = message;
+        code.classList.remove('hidden');
+      }
+    }
+  
+    function clearError() {
+      const { wrapper, code, shipping } = getDiscountErrorElements();
+  
+      if (wrapper) wrapper.classList.add('hidden');
+      if (code) code.classList.add('hidden');
+      if (shipping) shipping.classList.add('hidden');
+    }
+  
+    function getCurrentDiscountCodes() {
+      const codes = Array.from(document.querySelectorAll('.cart-discount__pill, .remove-discount'))
+        .map(el => el.dataset.discountCode || el.dataset.code || '')
+        .map(code => code.trim())
+        .filter(Boolean);
+  
+      return [...new Set(codes)];
+    }
+  
+    function getDiscountUIState() {
+      const details =
+        document.querySelector('.custom-discount-form')?.closest('details') ||
+        document.querySelector('collapsible-row.product__accordion details');
+  
+      const input = document.querySelector('.custom-discount-form input[name="discount"]');
+  
+      return {
+        isOpen: !!details?.open,
+        inputValue: input ? input.value : ''
+      };
+    }
+  
+    function restoreDiscountUIState(state) {
+      const details =
+        document.querySelector('.custom-discount-form')?.closest('details') ||
+        document.querySelector('collapsible-row.product__accordion details');
+  
+      const input = document.querySelector('.custom-discount-form input[name="discount"]');
+  
+      if (details && state?.isOpen) {
+        details.open = true;
+      }
+  
+      if (input && typeof state?.inputValue === 'string') {
+        input.value = state.inputValue;
+      }
+    }
+  
+    function getFetchConfig(bodyObj) {
+      return {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(bodyObj)
+      };
+    }
+  
+    function getCartUpdateUrl() {
+      if (window.Theme?.routes?.cart_update_url) return window.Theme.routes.cart_update_url;
+      if (window.routes?.cart_update_url) return window.routes.cart_update_url;
+      return '/cart/update.js';
+    }
+  
+    function parseSectionHtml(htmlString, sectionId) {
+      const parsed = new DOMParser().parseFromString(htmlString, 'text/html');
+      return parsed.getElementById(`shopify-section-${sectionId}`) || parsed;
+    }
+  
+    function refreshShippingMessageFromSection(sectionHtml, sectionId) {
+      const parsedSection = parseSectionHtml(sectionHtml, sectionId);
+  
+      const currentShippingMessage = document.querySelector('shipping-message');
+      const nextShippingMessage = parsedSection.querySelector('shipping-message');
+  
+      if (!currentShippingMessage || !nextShippingMessage) return;
+  
+      Array.from(nextShippingMessage.attributes).forEach(attr => {
+        currentShippingMessage.setAttribute(attr.name, attr.value);
+      });
+  
+      Array.from(currentShippingMessage.attributes).forEach(attr => {
+        if (!nextShippingMessage.hasAttribute(attr.name)) {
+          currentShippingMessage.removeAttribute(attr.name);
+        }
+      });
+  
+      if (typeof currentShippingMessage.render === 'function') {
+        currentShippingMessage.render();
+      }
+    }
+  
+    function replaceDrawerFromSectionHtml(sectionHtml, sectionId) {
+      const uiState = getDiscountUIState();
+  
+      const parsedSection = parseSectionHtml(sectionHtml, sectionId);
+      const currentItems = document.querySelector('cart-drawer-items');
+      const currentFooter = document.querySelector('.drawer-footer');
+      const nextItems = parsedSection.querySelector('cart-drawer-items');
+      const nextFooter = parsedSection.querySelector('.drawer-footer');
+  
+      if (currentItems && nextItems) {
+        currentItems.innerHTML = nextItems.innerHTML;
+      }
+  
+      if (currentFooter && nextFooter) {
+        currentFooter.innerHTML = nextFooter.innerHTML;
+      }
+  
+      restoreDiscountUIState(uiState);
+      refreshShippingMessageFromSection(sectionHtml, sectionId);
+      attachEventListeners();
+  
+      if (window.AOS) {
+        setTimeout(() => {
+          AOS.refreshHard();
+        }, 50);
+      }
+    }
+  
+    function getAppliedCodesFromSection(sectionHtml, sectionId) {
+      const parsedSection = parseSectionHtml(sectionHtml, sectionId);
+      const pills = parsedSection.querySelectorAll('.cart-discount__pill');
+      const codes = Array.from(pills)
+        .map(el => el.dataset.discountCode || '')
+        .filter(Boolean);
+  
+      return [...new Set(codes)];
+    }
+  
+    async function applyDiscountCodes(codes) {
+      const sectionId = getSectionId();
+      const currentCodes = getCurrentDiscountCodes();
+      const cleanCodes = [...new Set(codes.map(code => code.trim()).filter(Boolean))];
+      const isRemoving = cleanCodes.length < currentCodes.length;
+      const enteredCode = enteredDiscountCode;
+  
+      clearError();
+  
+      const response = await fetch(
+        getCartUpdateUrl(),
+        getFetchConfig({
+          discount: cleanCodes.join(','),
+          sections: [sectionId]
+        })
+      );
+  
+      const data = await response.json();
+  
+      const sectionHtml = data.sections?.[sectionId];
+      if (!sectionHtml) {
+        return false;
+      }
+  
+      const returnedDiscounts = Array.isArray(data.discount_codes) ? data.discount_codes : [];
+      const enteredDiscountPayload = returnedDiscounts.find(discount => discount.code === enteredCode);
+  
+      if (!isRemoving && enteredDiscountPayload && enteredDiscountPayload.applicable === false) {
+        showError('discount_code');
+        return false;
+      }
+  
+      const appliedCodesInHtml = getAppliedCodesFromSection(sectionHtml, sectionId);
+  
+      if (
+        !isRemoving &&
+        enteredDiscountPayload &&
+        enteredDiscountPayload.applicable === true &&
+        appliedCodesInHtml.length === currentCodes.length &&
+        currentCodes.every(code => appliedCodesInHtml.includes(code))
+      ) {
+        showError('shipping');
+        return false;
+      }
+  
+      replaceDrawerFromSectionHtml(sectionHtml, sectionId);
+      clearError();
+      return true;
+    }
+  
+    function attachEventListeners() {
+      const submitBtn = document.querySelector('.submit-discount');
+      const input = document.querySelector('.custom-discount-form input[name="discount"]');
+  
+      if (submitBtn && input) {
+        submitBtn.onclick = async function () {
+          const currentCodes = getCurrentDiscountCodes();
+          const code = input.value.trim();
+  
+          clearError();
+  
+          if (!code) {
+            showError('discount_code', 'Enter a valid discount code or gift card');
+            return;
+          }
+  
+          if (currentCodes.includes(code)) {
+            showError('discount_code', 'Entered coupon was already applied');
+            return;
+          }
+  
+          enteredDiscountCode = code;
+          const nextCodes = [...currentCodes, code];
+  
+          submitBtn.disabled = true;
+  
+          try {
+            const success = await applyDiscountCodes(nextCodes);
+  
+            if (success) {
+              const refreshedInput = document.querySelector('.custom-discount-form input[name="discount"]');
+              if (refreshedInput) refreshedInput.value = '';
+            }
+          } catch (error) {
+            showError('discount_code', 'Enter a valid discount code or gift card');
+          } finally {
+            submitBtn.disabled = false;
+          }
+        };
+      }
+  
+      const removeBtns = document.querySelectorAll('.remove-discount');
+      removeBtns.forEach(btn => {
+        btn.onclick = async function () {
+          const codeToRemove = (this.dataset.code || '').trim();
+          const currentCodes = getCurrentDiscountCodes();
+          const remaining = currentCodes.filter(code => code !== codeToRemove);
+  
+          enteredDiscountCode = '';
+          clearError();
+  
+          try {
+            await applyDiscountCodes(remaining);
+          } catch (error) {}
+        };
+      });
+    }
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      attachEventListeners();
+    });
+  </script>
