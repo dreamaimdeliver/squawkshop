@@ -569,13 +569,6 @@
             "margin_top": 10
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-            "margin_top": 20,
-            "text_size": "medium"
-          }
-        },
         "complementary": {
           "type": "complementary",
           "settings": {
@@ -605,7 +598,6 @@
       "block_order": [
         "title",
         "price",
-        "description",
         "complementary",
         "quantity_selector",
         "buy_buttons"
@@ -618,7 +610,7 @@
         "image_zoom": "lightbox",
         "autoplay_video": false,
         "enable_video_looping": false,
-        "color_scheme": "scheme-6c59a8bd-c696-46f8-938a-e26ff9b2b07c",
+        "color_scheme": "option-2",
         "padding_top": 64,
         "padding_bottom": 36,
         "ignore_spacing": true,
