@@ -555,19 +555,6 @@
     "featured_product": {
       "type": "featured-product",
       "blocks": {
-        "countdown_timer": {
-          "type": "countdown-timer",
-          "settings": {
-            "countdown-text": "",
-            "countdown-text-position": "top",
-            "countdown-date": "Feb 2, 2026",
-            "countdown-time": "23:59",
-            "countdown-date-time-style": "style-two",
-            "countdown_finished_message": "This offer has ended",
-            "countdown_timer_tag": false,
-            "margin_top": 10
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -616,7 +603,6 @@
         }
       },
       "block_order": [
-        "countdown_timer",
         "title",
         "price",
         "description",
@@ -625,7 +611,7 @@
         "buy_buttons"
       ],
       "settings": {
-        "product": "large-pineapple",
+        "product": "java-tree",
         "product_gallery_width": 50,
         "media_position": "left",
         "media_fit": "contain",
