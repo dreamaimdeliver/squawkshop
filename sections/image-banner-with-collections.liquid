@@ -76,6 +76,76 @@
       #Banner-{{ section.id }}::after {
         opacity: {{ section.settings.image_overlay_opacity_mobile | divided_by: 100.0 }};
       }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner--height {
+        min-height: max({{ section.settings.image_height_mobile }}rem, 72vh);
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner-media img {
+        object-position: center top;
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.18) 42%, rgba(0, 0, 0, 0.54) 100%);
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner-content {
+        align-items: flex-end;
+        padding: 3.2rem 1.6rem 4.4rem;
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner-box {
+        padding: 0;
+        max-width: 44rem;
+        color: #fff;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .image-with-text-text,
+      #section-{{ section.id }}.image-banner-with-collections .banner-heading,
+      #section-{{ section.id }}.image-banner-with-collections .banner-text {
+        color: #fff;
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .image-with-text-text {
+        font-size: 1.1rem;
+        line-height: 1.35;
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner-heading {
+        font-size: clamp(3rem, 11vw, 4.8rem);
+        line-height: 0.98;
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner-text {
+        max-width: 34rem;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.45rem;
+        line-height: 1.45;
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: min(100%, 34rem);
+        max-width: 34rem;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 0.8rem;
+      }
+
+      #section-{{ section.id }}.image-banner-with-collections .banner-buttons .button {
+        min-height: 4.6rem;
+        width: 100%;
+        justify-content: center;
+        text-shadow: none;
+      }
       
       .section-{{ section.id }}-mobile-margin {
         margin-top: -{{ section.settings.mobile_margin_top }}px;
