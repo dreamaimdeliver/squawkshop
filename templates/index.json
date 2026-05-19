@@ -725,17 +725,10 @@
             "highlight_option": "underline-hand",
             "word_animation_color": "#fe0126"
           }
-        },
-        "text_A3WTCB": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Honest reviews from parrot parents who choose Squawk Shop for quality, safety, and enrichment.</p>"
-          }
         }
       },
       "block_order": [
-        "heading_4fPqmR",
-        "text_A3WTCB"
+        "heading_4fPqmR"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -842,8 +835,9 @@
         "buttons"
       ],
       "settings": {
+        "image": "shopify://shop_images/Squawk_Shop_Hero_Image.png",
         "hide_image": false,
-        "image_overlay_opacity": 20,
+        "image_overlay_opacity": 30,
         "image_height": 80,
         "full_width_banner": true,
         "adapt_to_image": false,
@@ -970,6 +964,15 @@
             "left": 13
           }
         },
+        "tooltip_ANDBRD": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "large-multi-branch",
+            "content": "I am a tooltip, I provide additional explanatory content and showcase product features.",
+            "top": 20,
+            "left": 50
+          }
+        },
         "tooltip_2": {
           "type": "Tooltip",
           "settings": {
@@ -977,6 +980,33 @@
             "content": "Experience the ease of cleaning up the hard to clean poop from your feathered friend with our all natural Poop-D-Zolver cleaner.",
             "top": 30,
             "left": 38
+          }
+        },
+        "tooltip_Hnn96M": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "poop-d-solver-lime-coconut-scented",
+            "content": "I am a tooltip, I provide additional explanatory content and showcase product features.",
+            "top": 20,
+            "left": 50
+          }
+        },
+        "tooltip_QCTeNK": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "",
+            "content": "I am a tooltip, I provide additional explanatory content and showcase product features.",
+            "top": 20,
+            "left": 50
+          }
+        },
+        "tooltip_d4GrkC": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "poop-d-solver-lime-coconut-scented",
+            "content": "I am a tooltip, I provide additional explanatory content and showcase product features.",
+            "top": 20,
+            "left": 50
           }
         },
         "tooltip_UGbYYh": {
@@ -987,14 +1017,29 @@
             "top": 20,
             "left": 50
           }
+        },
+        "tooltip_NNJC7k": {
+          "type": "Tooltip",
+          "settings": {
+            "product": "large-pineapple",
+            "content": "I am a tooltip, I provide additional explanatory content and showcase product features.",
+            "top": 20,
+            "left": 50
+          }
         }
       },
       "block_order": [
         "tooltip_1",
+        "tooltip_ANDBRD",
         "tooltip_2",
-        "tooltip_UGbYYh"
+        "tooltip_Hnn96M",
+        "tooltip_QCTeNK",
+        "tooltip_d4GrkC",
+        "tooltip_UGbYYh",
+        "tooltip_NNJC7k"
       ],
       "settings": {
+        "image": "shopify://shop_images/Squawk_Shop_Gizmo_Approved.png",
         "image_size": "default",
         "caption": "",
         "text_style": "caption-with-letter-spacing",
@@ -1061,6 +1106,7 @@
           "type": "text",
           "settings": {
             "text": "",
+            "image": "shopify://shop_images/Vitapol_Logo.jpg",
             "image_link": ""
           }
         },
@@ -1068,6 +1114,7 @@
           "type": "text",
           "settings": {
             "text": "",
+            "image": "shopify://shop_images/AE_Cage_Co_Logo.webp",
             "image_link": ""
           }
         },
@@ -1075,6 +1122,7 @@
           "type": "text",
           "settings": {
             "text": "",
+            "image": "shopify://shop_images/Happy_Beaks_Logo.png",
             "image_link": ""
           }
         },
@@ -1082,6 +1130,7 @@
           "type": "text",
           "settings": {
             "text": "",
+            "image": "shopify://shop_images/Poop-D-Zolver_Logo.jpg",
             "image_link": ""
           }
         },
@@ -1089,6 +1138,7 @@
           "type": "text",
           "settings": {
             "text": "",
+            "image": "shopify://shop_images/Java_Wood_Logo.avif",
             "image_link": ""
           }
         }
