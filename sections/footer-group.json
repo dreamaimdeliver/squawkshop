@@ -1,1 +1,122 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"popup":{"type":"popup","settings":{"enable_popup":true,"popup_test":false,"fadein":4,"popup_count":1,"trigger_link":true,"layout":"style_3","image_width":45,"image_alt":"Alt text","popup_title":"Sign up for 20% off your first order!","header_font_size":32,"popup_message":"Join our newsletter to be the first to know about new arrivals, exclusive promotions, and online-only deals.","message_font_size":14,"submit_button_text":"Sign-up","success_message":"Success Message","show_social":true,"enable_terms":true,"terms_label":"<p>I agree to receive marketing emails<\/p>","terms_position":"position_above","subs_form":false,"button_label":"","link":"","apply_link_to_image":false,"color_scheme":"option-1"}},"17636741671c69e390":{"type":"apps","settings":{"include_margins":true,"padding_top":28,"padding_bottom":96}},"footer":{"type":"footer","blocks":{"brand_information":{"type":"brand_information","settings":{"brand_headline":"","brand_description":"<p><strong>Squawk Shop<\/strong> is your trusted destination for thoughtfully crafted <strong>parrot essentials that prioritize safety, enrichment, and natural design.<\/strong> We carefully curate every product to meet the highest standards of quality, ensuring it <strong>supports your bird’s instinctive needs while enhancing their daily life in meaningful ways.<\/strong><br\/><br\/>At <strong>Squawk Shop<\/strong>, we believe parrots deserve the very best—products made from bird-safe materials, ethically sourced components, and enrichment-focused craftsmanship. Every item in our store reflects our commitment to responsible sourcing, avian wellness, and mindful design, <strong>so you can feel confident about what you bring into your home and your bird’s world.<\/strong><\/p>","brand_image":"shopify:\/\/shop_images\/Squawk_Shop_-_Favicon_1200_x_250_px.png","brand_image_width":285,"hide_image":false,"newsletter_enable":true,"show_social":true,"social_icons_size":"small"}},"footer-0":{"type":"text","settings":{"heading":"Our Shop","subtext":"<p>We're here to help! For questions or order assistance, our support team is just an email away.<br\/><br\/>📞 <strong>Contact Us: <\/strong><\/p><p><strong>support@squawkshop.com<\/strong><br\/><br\/>⏰ <strong>Store Hours: Mon-Fri 9am - 6pm<\/strong><br\/><br\/>🚚 <strong>Shipping Info<\/strong><br\/><br\/>🔄 <strong>Returns & Exchanges<\/strong><br\/><br\/>📦 <strong>Order Tracking<\/strong><\/p>","custom_liquid":""}},"text_hTwmjR":{"type":"text","settings":{"heading":"Squawk Global","subtext":"<p>Become part of our flock family. Share stories, tips, and connect with others who care deeply about their feathered friends.<br\/><br\/>📢<strong> Join Our Forum<\/strong><br\/><br\/>📝<strong> Share Your Story<\/strong><br\/><br\/>🎉<strong> Events & Meetups<\/strong><\/p>","custom_liquid":""}},"footer-2":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/The_Love_Behind_the_Shop.png","image_width":550,"image_headline":"Giving Back With Every Purchase","image_description":"<p>Part of every purchase goes directly to bird rescue centers around the globe—helping parrots like Gizmo get a second chance at the life they deserve.<\/p>","button_label":"Learn More","button_link":"shopify:\/\/collections\/bird-treats","open_new_tab_1":false,"button_style_secondary":false,"color_scheme_1":"option-4"}}},"block_order":["brand_information","footer-0","text_hTwmjR","footer-2"],"settings":{"heading_tag":"h2","enable_follow_on_shop":true,"enable_country_selector":true,"enable_language_selector":true,"payment_enable":true,"show_powered_by_link":false,"show_policy":false,"enable_terms":true,"terms_label":"<p>I agree to receive marketing emails<\/p>","back_to_top_desktop":true,"back_to_top_bottom":36,"back_to_top_right":4,"back_to_top_mobile":true,"centered_content":true,"color_scheme":"option-3","apply_scheme_footer_bottom":true,"footer_border":false,"swipe_on_mobile":false,"disable_arrow_mobile":false,"margin_top":0,"margin_bottom":80,"make_columns_even":true,"padding_top":48,"padding_bottom":16,"ignore_spacing":true}}},"order":["popup","17636741671c69e390","footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "popup": {
+      "type": "popup",
+      "settings": {
+        "enable_popup": true,
+        "popup_test": false,
+        "fadein": 4,
+        "popup_count": 1,
+        "trigger_link": true,
+        "layout": "style_3",
+        "image_width": 45,
+        "image_alt": "Alt text",
+        "popup_title": "Sign up for 20% off your first order!",
+        "header_font_size": 32,
+        "popup_message": "Join our newsletter to be the first to know about new arrivals, exclusive promotions, and online-only deals.",
+        "message_font_size": 14,
+        "submit_button_text": "Sign-up",
+        "success_message": "Success Message",
+        "show_social": true,
+        "enable_terms": true,
+        "terms_label": "<p>I agree to receive marketing emails</p>",
+        "terms_position": "position_above",
+        "subs_form": false,
+        "button_label": "",
+        "link": "",
+        "apply_link_to_image": false,
+        "color_scheme": "option-1"
+      }
+    },
+    "17636741671c69e390": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 28,
+        "padding_bottom": 96
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "brand_information": {
+          "type": "brand_information",
+          "settings": {
+            "brand_headline": "",
+            "brand_description": "<p>Bird-safe toys, cages, treats, and enrichment essentials for parrots who deserve the good stuff.</p>",
+            "brand_image": "shopify://shop_images/Squawk_Shop_-_Favicon_1200_x_250_px.png",
+            "brand_image_width": 285,
+            "hide_image": false,
+            "newsletter_enable": true,
+            "show_social": true,
+            "social_icons_size": "medium"
+          }
+        },
+        "footer-0": {
+          "type": "text",
+          "settings": {
+            "heading": "Shop",
+            "subtext": "<p><a href=\"/collections/bird-toys\" title=\"Parrot Toys\"><strong>Shop Toys</strong></a></p><p><a href=\"/collections/parrot-cages\" title=\"Parrot Cages\"><strong>Shop Cages</strong></a></p><p><a href=\"/products/java-tree\" title=\"Java Tree Floor Stand for Parrots (Pick Your Exact Tree)\"><strong>Shop Java Trees</strong></a></p><p><a href=\"/collections\" title=\"All collections\"><strong>Best Sellers</strong></a></p>",
+            "custom_liquid": ""
+          }
+        },
+        "text_hTwmjR": {
+          "type": "text",
+          "settings": {
+            "heading": "Help",
+            "subtext": "<p><a href=\"/pages/contact\" title=\"Contact\">Contact Us</a></p><p><a href=\"/pages/shipping-info\" title=\"Shipping info\">Shipping Policy</a></p><p><a href=\"/pages/return-policy\" title=\"Return Policy\">Returns & Exchanges</a></p><p><a href=\"/pages/faq\" title=\"FAQ\">FAQ's </a></p><p><a href=\"/pages/collection-bundle\" title=\"Mix and Match\">Price Match</a></p>",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_information",
+        "footer-0",
+        "text_hTwmjR"
+      ],
+      "settings": {
+        "heading_tag": "h2",
+        "enable_follow_on_shop": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_powered_by_link": false,
+        "show_policy": false,
+        "enable_terms": true,
+        "terms_label": "<p>I agree to receive marketing emails</p>",
+        "back_to_top_desktop": true,
+        "back_to_top_bottom": 36,
+        "back_to_top_right": 4,
+        "back_to_top_mobile": true,
+        "centered_content": true,
+        "color_scheme": "option-3",
+        "apply_scheme_footer_bottom": true,
+        "footer_border": false,
+        "swipe_on_mobile": false,
+        "disable_arrow_mobile": false,
+        "margin_top": 0,
+        "margin_bottom": 80,
+        "make_columns_even": false,
+        "padding_top": 48,
+        "padding_bottom": 16,
+        "ignore_spacing": true
+      }
+    }
+  },
+  "order": [
+    "popup",
+    "17636741671c69e390",
+    "footer"
+  ]
+}
