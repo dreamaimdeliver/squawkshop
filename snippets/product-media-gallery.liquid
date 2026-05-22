@@ -88,7 +88,13 @@
         </li>
       {%- endif -%}
       {%- for media in product.media -%}
-        {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+        {%- liquid
+          assign media_is_hidden_variant = false
+          if section.settings.hide_variants and variant_images contains media.src
+            assign media_is_hidden_variant = true
+          endif
+        -%}
+        {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media_is_hidden_variant -%}
           <li
             id="Slide-{{ section.id }}-{{ media.id }}{{ id_append }}"
             class="product-media-item grid-item scroll-trigger animate--fade-in slider-slide{% if single_media_visible %} product-media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product-media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product-media-item--variant{% endif %}"
@@ -233,7 +239,13 @@
           </li>
         {%- endif -%}
         {%- for media in product.media -%}
-          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          {%- liquid
+            assign media_is_hidden_variant = false
+            if section.settings.hide_variants and variant_images contains media.src
+              assign media_is_hidden_variant = true
+            endif
+          -%}
+          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media_is_hidden_variant -%}
             {%- liquid
               capture media_index
                 if media.media_type == 'model'
@@ -502,7 +514,13 @@
         </li>
       {%- endif -%}
       {%- for media in product.media -%}
-        {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+        {%- liquid
+          assign media_is_hidden_variant = false
+          if section.settings.hide_variants and variant_images contains media.src
+            assign media_is_hidden_variant = true
+          endif
+        -%}
+        {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media_is_hidden_variant -%}
           <li
             id="Slide-{{ section.id }}-{{ media.id }}{{ id_append }}"
             class="product-media-item grid-item scroll-trigger animate--fade-in slider-slide{% if single_media_visible %} product-media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product-media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product-media-item--variant{% endif %}"
@@ -646,7 +664,13 @@
           </li>
         {%- endif -%}
         {%- for media in product.media -%}
-          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          {%- liquid
+            assign media_is_hidden_variant = false
+            if section.settings.hide_variants and variant_images contains media.src
+              assign media_is_hidden_variant = true
+            endif
+          -%}
+          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media_is_hidden_variant -%}
             {%- liquid
               capture media_index
                 if media.media_type == 'model'
