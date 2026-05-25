@@ -92,7 +92,7 @@
             "link_label": "Shop essentials",
             "link": "",
             "show_text_box": false,
-            "image_overlay_opacity": 65,
+            "image_overlay_opacity": 60,
             "color_scheme": "option-4"
           }
         }
