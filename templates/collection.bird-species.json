@@ -64,6 +64,7 @@
         "text_style": "caption-with-letter-spacing",
         "text_size": "large",
         "subcollection_list_style": "collection-list-three",
+        "title_under": false,
         "image_ratio": "square",
         "collections_to_show": 10,
         "columns_desktop": 3,
@@ -107,7 +108,6 @@
           "type": "promo_row",
           "settings": {
             "promo_row": "7",
-            "image": "shopify://shop_images/Parrot_Wellness_1.png",
             "banner_height": "small",
             "caption": "",
             "text_style": "caption-with-letter-spacing",
@@ -135,6 +135,7 @@
         "load_button": "Load more",
         "product_card_style": "collection-one",
         "image_ratio": "square",
+        "contain_image": false,
         "show_secondary_image": true,
         "show_vendor": false,
         "enable_quick_add": true,
@@ -144,6 +145,7 @@
         "list_size_variants_in_collection": true,
         "hide_unavailable": false,
         "quick_add_position": "overlay",
+        "use_first_image_in_product_card": false,
         "enable_filtering": true,
         "enable_switcher": true,
         "filter_type": "horizontal",
@@ -162,6 +164,7 @@
     "quick_info_bar": {
       "type": "quick-info-bar",
       "settings": {
+        "image-1": "shopify://shop_images/FREE_SHIPPING.png",
         "heading-1": "Free Shipping",
         "caption-1": "For orders over $49",
         "heading-2": "Money Guarantee",
