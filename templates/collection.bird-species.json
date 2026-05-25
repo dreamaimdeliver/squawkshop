@@ -21,43 +21,35 @@
         "color_scheme": "option-3",
         "image": "shopify://shop_images/Premium_Parrot_Toys.png",
         "image_for_all": false,
-        "fallback_heading": "Parrot Toys",
+        "fallback_heading": "Parrot Species",
         "padding_top": 6,
         "padding_bottom": 0
       }
     },
-    "rich_text_N7HFVQ": {
-      "type": "rich-text",
-      "blocks": {
-        "text_xNjDfK": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong>Parrot toys</strong> aren’t just “something to do” — they’re how birds stay happy, busy, and out of trouble. Our toy collection is built for real parrots with real beaks, featuring shreddable materials, foraging fun, and chew-worthy textures that help support healthy enrichment and daily activity.</p><p><strong>Browse below to find toys</strong> for chewing, climbing, puzzle-solving, and “I’m definitely not bored” bird moments.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_xNjDfK"
-      ],
-      "name": "t:sections.rich-text.presets.name",
+    "species_intro": {
+      "type": "custom-liquid",
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "full_width": true,
-        "rich_text_width": 78,
+        "custom_liquid": "<div class=\"species-template species-template--intro\">\n  <div class=\"species-template__eyebrow\">Species-specific parrot care</div>\n  <h2>Shop for {{ collection.title }}</h2>\n  {% if collection.description != blank %}\n    <div class=\"species-template__description rte\">{{ collection.description }}</div>\n  {% else %}\n    <p>Build a safer, more enriching setup for your bird with toys, perches, cages, play stands, and daily essentials chosen for species-specific needs.</p>\n  {% endif %}\n  <div class=\"species-template__pill-row\">\n    <span>Enrichment</span>\n    <span>Perching</span>\n    <span>Habitat</span>\n    <span>Foraging</span>\n  </div>\n</div>\n\n<style>\n  .species-template { color: #18252e; }\n  .species-template--intro { max-width: 980px; }\n  .species-template__eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fe0126; margin-bottom: 8px; }\n  .species-template h2 { margin: 0 0 10px; font-size: clamp(26px, 4vw, 42px); line-height: 1.08; letter-spacing: 0; }\n  .species-template p, .species-template__description { font-size: 16px; line-height: 1.65; max-width: 78rem; }\n  .species-template__pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }\n  .species-template__pill-row span { border: 1px solid rgba(24,37,46,.16); border-radius: 999px; padding: 7px 11px; font-size: 13px; background: #fff; }\n</style>",
         "color_scheme": "option-1",
-        "padding_top": 12,
-        "padding_bottom": 0,
-        "ignore_spacing": false,
-        "margin_spacing": "negative",
-        "margin_top": 0,
-        "mobile_content_alignment": "left"
+        "padding_top": 20,
+        "padding_bottom": 8,
+        "ignore_spacing": false
+      }
+    },
+    "species_guide": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"species-guide\">\n  <div class=\"species-guide__header\">\n    <div class=\"species-template__eyebrow\">Build the right setup</div>\n    <h2>Choose essentials by how your parrot lives</h2>\n  </div>\n  <div class=\"species-guide__grid\">\n    <div class=\"species-guide__item\"><h3>Cage & space</h3><p>Prioritize safe bar spacing, room to stretch, and enough interior space for movement, toys, food, and rest.</p></div>\n    <div class=\"species-guide__item\"><h3>Chew strength</h3><p>Match toys to beak power. Smaller birds often love shreddables; larger parrots may need thicker wood and tougher hardware.</p></div>\n    <div class=\"species-guide__item\"><h3>Perch variety</h3><p>Offer different perch diameters and natural textures to support feet, balance, climbing, and daily exercise.</p></div>\n    <div class=\"species-guide__item\"><h3>Foraging routine</h3><p>Add puzzle toys, refillable foragers, cups, and destructible materials to keep meals and treats mentally engaging.</p></div>\n  </div>\n</div>\n\n<style>\n  .species-guide__header { max-width: 760px; margin-bottom: 18px; }\n  .species-guide__header h2 { margin: 0; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.12; letter-spacing: 0; }\n  .species-guide__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }\n  .species-guide__item { border: 1px solid rgba(24,37,46,.12); border-radius: 8px; padding: 16px; background: #fff; }\n  .species-guide__item h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.25; }\n  .species-guide__item p { margin: 0; font-size: 14px; line-height: 1.55; }\n  @media (max-width: 989px) { .species-guide__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }\n  @media (max-width: 549px) { .species-guide__grid { grid-template-columns: 1fr; } }\n</style>",
+        "color_scheme": "option-2",
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "ignore_spacing": false
       }
     },
     "subcollections": {
       "type": "subcollections",
       "settings": {
-        "title": "",
+        "title": "Shop by category",
         "heading_size": "medium",
         "heading_tag": "h2",
         "caption": "",
@@ -67,11 +59,11 @@
         "title_under": false,
         "image_ratio": "square",
         "collections_to_show": 10,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "enable_desktop_slider": false,
         "color_scheme": "option-1",
         "color_scheme_1": "option-2",
-        "padding_top": 24,
+        "padding_top": 16,
         "padding_bottom": 0,
         "ignore_spacing": true,
         "margin_spacing": "negative",
@@ -90,46 +82,24 @@
             "promo_row": "7",
             "image": "shopify://shop_images/01602464.jpg",
             "banner_height": "small",
-            "caption": "",
+            "caption": "Species essentials",
             "text_style": "caption-with-letter-spacing",
             "text_size": "medium",
-            "heading": "Toys",
+            "heading": "Rotate enrichment weekly",
             "heading_size": "small",
             "heading_tag": "h2",
-            "subheading": "Discover enrichment essentials crafted with love.",
-            "link_label": "Order Now",
+            "subheading": "Mix chew toys, foraging toys, perches, and play areas to keep your bird active and curious.",
+            "link_label": "Shop essentials",
             "link": "",
             "show_text_box": false,
-            "image_overlay_opacity": 60,
+            "image_overlay_opacity": 65,
             "color_scheme": "option-4"
-          }
-        },
-        "promo_row_1": {
-          "type": "promo_row",
-          "settings": {
-            "promo_row": "7",
-            "banner_height": "small",
-            "caption": "",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium",
-            "heading": "Foraging Fun",
-            "heading_size": "small",
-            "heading_tag": "h2",
-            "subheading": "Encourage natural curiosity with enrichment designed for pure foraging fun",
-            "link_label": "Order Now",
-            "link": "",
-            "show_text_box": false,
-            "image_overlay_opacity": 90,
-            "color_scheme": "scheme-0d0a391f-7330-4d0d-8e7e-7396c7c2fcac"
           }
         }
       },
-      "block_order": [
-        "promo_row",
-        "promo_row_1"
-      ],
+      "block_order": ["promo_row"],
       "settings": {
-        "products_per_page": 12,
+        "products_per_page": 16,
         "columns_desktop": 4,
         "pagination": "load-more",
         "load_button": "Load more",
@@ -151,13 +121,13 @@
         "filter_type": "horizontal",
         "open_filter": "all",
         "enable_sorting": true,
-        "product_count": false,
+        "product_count": true,
         "color_scheme": "option-1",
         "color_scheme_1": "option-1",
         "columns_mobile": "2",
         "disable_quick_add": true,
         "padding_top": 24,
-        "padding_bottom": 72,
+        "padding_bottom": 48,
         "ignore_spacing": true
       }
     },
@@ -167,12 +137,15 @@
         "image-1": "shopify://shop_images/FREE_SHIPPING.png",
         "heading-1": "Free Shipping",
         "caption-1": "For orders over $49",
-        "heading-2": "Money Guarantee",
-        "caption-2": "30 days for an exchange",
-        "heading-3": "Online Support",
-        "caption-3": "24 hours per day",
+        "image-2": "shopify://shop_images/Happiness_Guarantee.png",
+        "heading-2": "30-Day Happiness Guarantee",
+        "caption-2": "Easy Returns Within 30 Days",
+        "image-3": "shopify://shop_images/Online_Support.png",
+        "heading-3": "Bird Support",
+        "caption-3": "Ask us for setup help",
+        "image-4": "shopify://shop_images/Flexible_Payment.png",
         "heading-4": "Flexible Payment",
-        "caption-4": "Multiple Credit Cards",
+        "caption-4": "Multiple Payment Options",
         "image_size": "small",
         "add_border": false,
         "full_width_background": false,
@@ -185,44 +158,33 @@
         "margin_top": 0
       }
     },
-    "rich_text_fxBntk": {
-      "type": "rich-text",
+    "species_faq": {
+      "type": "collapsible-content",
       "blocks": {
-        "heading_6n6BG7": {
-          "type": "heading",
-          "settings": {
-            "heading": "How to C<em>hoose</em> the Right Parrot Toys?",
-            "heading_size": "large",
-            "heading_style": "default",
-            "heading_tag": "h2",
-            "highlight_option": "underline-hand",
-            "word_animation_color": "#fe0126"
-          }
-        },
-        "text_wgxWBi": {
-          "type": "text",
-          "settings": {
-            "text": "<p>The best toy is the one your bird will actually use. Aim for a mix and rotate often.<br/><br/><strong>1) Match the toy to your bird’s “vibe”</strong><br/>\t•\tChewers: tougher wood, thick paper, palm, and durable components<br/>\t•\tShredders: paper, sola, vine balls, cardboard, soft shreddables<br/>\t•\tForagers / brainy birds: toys with hidden treats, cups, drawers, or crinkle paper<br/>\t•\tClimbers: rope, ladders, swings, and multi-point hang toys<br/><br/><strong>2) Choose the right toughness</strong><br/>\t•\tSmall birds usually prefer lighter materials they can destroy quickly.<br/>\t•\tBig birds often need heavier-duty toys so they don’t obliterate them in 30 seconds.<br/><br/><strong>3) Get the size right</strong><br/>A good rule: your bird should be able to grab, pull, and manipulate parts without getting overwhelmed by a massive toy.<br/><br/><strong>4) Always grab a “toy mix”</strong><br/>We recommend keeping 3 types in rotation:<br/>\t•\t1 shreddable<br/>\t•\t1 chew toy<br/>\t•\t1 foraging or interactive toy<br/><br/>Swap toys weekly to keep things exciting.<br/><br/><strong>5) Safety check</strong><br/>If it’s fraying, cracking, or has loose parts, it’s time to repair or replace.</p>"
-          }
-        }
+        "faq_1": {"type": "collapsible_row", "settings": {"heading": "What should I buy first for this species?", "icon": "question_mark", "row_content": "<p>Start with the basics: a properly sized cage, a few safe perches, chew toys, foraging toys, and food or treat enrichment. Then add play stands and rotating toys as you learn what your bird prefers.</p>", "page": ""}},
+        "faq_2": {"type": "collapsible_row", "settings": {"heading": "How do I choose safe toy sizes?", "icon": "check_mark", "row_content": "<p>Choose toys your bird can grip and explore without getting overwhelmed. Small birds usually do better with lighter shreddables, while larger parrots need stronger materials and heavier-duty parts.</p>", "page": ""}},
+        "faq_3": {"type": "collapsible_row", "settings": {"heading": "How often should I rotate toys?", "icon": "refresh", "row_content": "<p>Rotate toys weekly or whenever interest drops. Keep a mix of shredding, chewing, climbing, and foraging items so your bird has different activities throughout the week.</p>", "page": ""}},
+        "faq_4": {"type": "collapsible_row", "settings": {"heading": "Can you help me choose products?", "icon": "headset", "row_content": "<p>Yes. If you are unsure what fits your bird, contact Squawk Shop with your bird's species, cage size, chewing style, and what you already own. We can help build a safer, more enriching setup.</p>", "page": ""}}
       },
-      "block_order": [
-        "heading_6n6BG7",
-        "text_wgxWBi"
-      ],
-      "name": "t:sections.rich-text.presets.name",
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4"],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "full_width": true,
-        "rich_text_width": 78,
-        "color_scheme": "",
-        "padding_top": 12,
-        "padding_bottom": 0,
-        "ignore_spacing": false,
+        "caption": "Species care FAQ",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "heading": "Choosing products for your parrot",
+        "heading_size": "medium",
+        "heading_style": "default",
+        "heading_tag": "h2",
+        "heading_alignment": "left",
+        "open_first_collapsible_row": true,
+        "open_all_collapsible_row": false,
+        "color_scheme": "option-1",
+        "color_scheme_1": "option-2",
+        "padding_top": 36,
+        "padding_bottom": 44,
+        "ignore_spacing": true,
         "margin_spacing": "negative",
-        "margin_top": 0,
-        "mobile_content_alignment": "left"
+        "margin_top": 0
       }
     },
     "recently_viewed_products": {
@@ -236,8 +198,8 @@
         "heading_tag": "h2",
         "color_scheme": "option-2",
         "color_scheme_1": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
+        "padding_top": 48,
+        "padding_bottom": 60,
         "ignore_spacing": true,
         "columns_mobile": "3",
         "margin_spacing": "negative",
@@ -247,11 +209,12 @@
   },
   "order": [
     "banner",
-    "rich_text_N7HFVQ",
+    "species_intro",
+    "species_guide",
     "subcollections",
     "product-grid",
     "quick_info_bar",
-    "rich_text_fxBntk",
+    "species_faq",
     "recently_viewed_products"
   ]
 }
