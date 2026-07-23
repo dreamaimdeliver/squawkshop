@@ -359,68 +359,6 @@
         "ignore_spacing": false
       }
     },
-    "image_gallery": {
-      "type": "image-gallery",
-      "blocks": {
-        "text_1": {
-          "type": "text",
-          "settings": {
-            "image_link": ""
-          }
-        },
-        "text_2": {
-          "type": "text",
-          "settings": {
-            "image_link": ""
-          }
-        },
-        "text_3": {
-          "type": "text",
-          "settings": {
-            "image_link": ""
-          }
-        },
-        "text_4": {
-          "type": "text",
-          "settings": {
-            "image_link": ""
-          }
-        },
-        "text_bc7pFb": {
-          "type": "text",
-          "settings": {
-            "image_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "text_1",
-        "text_2",
-        "text_3",
-        "text_4",
-        "text_bc7pFb"
-      ],
-      "settings": {
-        "caption": "",
-        "text_style": "caption-with-letter-spacing",
-        "text_size": "medium",
-        "title": "",
-        "heading_size": "medium",
-        "heading_style": "default",
-        "heading_tag": "h2",
-        "scroll_direction": "ltc",
-        "scroll_speed": 70,
-        "scroll_height": 200,
-        "hover_stop": true,
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 36,
-        "ignore_spacing": true,
-        "scroll_height_mobile": 220,
-        "margin_spacing": "negative",
-        "margin_top": 0
-      }
-    },
     "1763676936a0e47fba": {
       "type": "apps",
       "settings": {
@@ -694,7 +632,6 @@
   },
   "order": [
     "main",
-    "image_gallery",
     "1763676936a0e47fba",
     "testimonials",
     "related-products",
